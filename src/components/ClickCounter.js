@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React  from 'react';
+import withCounter from './withCounter'
 
 function ClickCounter(props) {
-    const [ count, updateCounter ] = useState(0)
+    const { count, updateCounter } = props
     return (
         <div>
             <button onClick={() => updateCounter(count+1)}>{`Clicked ${count} times`}</button>
@@ -9,4 +10,4 @@ function ClickCounter(props) {
     );
 }
 
-export default ClickCounter;
+export default withCounter(ClickCounter);
