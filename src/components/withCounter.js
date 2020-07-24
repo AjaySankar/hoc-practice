@@ -1,21 +1,9 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
 const UpdatedComponent = (WrappedComponent) => {
-    class NewComponent extends Component {
-        constructor(props) {
-            super(props)
-            this.state = {
-                count: 0
-            }
-        }
-        incrementCount = () => {
-            this.setState(({count: prevCount}) => {
-                return { count: prevCount + 1}
-            })
-        }
-        render() {
-            return <WrappedComponent count={this.state.count} updateCounter={this.incrementCount}/>
-        }
+    const NewComponent = () => {
+        const [ count, updateCounter ] = useState(0)
+        return <WrappedComponent count={count} updateCounter={updateCounter}/>
     }
     return NewComponent
 }
